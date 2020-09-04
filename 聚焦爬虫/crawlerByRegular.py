@@ -42,7 +42,3 @@ class CrawlerBoss:
 
 if __name__ == '__main__':
     CrawlerBoss('测试开发').run('测试开发.txt')
-    # url = "https://www.zhipin.com/c101190400/?query=软件测试&page={num}&ka=page-{num}"
-    # for i in range(1, 10):
-    #     newUrl = url.format(num=i)
-    #     print(newUrl)
