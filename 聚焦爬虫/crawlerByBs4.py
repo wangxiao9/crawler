@@ -41,6 +41,7 @@ class CrawlerNovel:
             tag_chapter = soup_chapter.find("div", class_="mainContenr")
             content = tag_chapter.text
             print(content)
+
     def test(self):
         url = "http://www.quanshuwang.com/book/0/858/274178.html"
         res = requests.get(url, headers=self.headers).text

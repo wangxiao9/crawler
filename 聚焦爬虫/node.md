@@ -47,13 +47,26 @@ $ | 以什么结尾
 * 安装
     * pip install bs4
     * pip install lxml
-    
+* bs4使用步骤
+    * 引入对象
+        from bs4 impost BeautifulSoup
+    * 实例化BeautifulSoup对象
+        soup = BeautifulSoup(res, 'lxml')
+    * 使用
+        * soup.tagName: 返回第一次出现的这个标签
+        * soup.find(): 返回第一次出现的搜索的内容
+        * soup.find_all(): 返回查询的内容的列表
+        * soup.select(): 层级选择器
+        * soup.p.text/get_text():获取p 标签下所有的文本内容
+        * soup.p.string: 获取该标签下直属内容
+        * soup.a['href] = soup.a.get('href'): 获取a标签的href属性
 ## xpath
 * xpath原理
     * 实例化一个etree对象，且需将被解析页面源码加载到对象中
     * 调用etree对象中的xpath
 * 安装
     * pip install xpath
+
     
 ## 通用处理中文乱码
 1. res.encode('iso-8859-1').decode('gbk'')
