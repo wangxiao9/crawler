@@ -1,7 +1,5 @@
 __author__ = 'wangxiao'
 
-import time
-
 import bs4
 import requests
 from random import choice
@@ -18,7 +16,7 @@ class CrawlerNovel:
             "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)",
             "Mozilla/5.0 (Macintosh; U; PPC Mac OS X 10.5; en-US; rv:1.9.2.15) Gecko/20110303 Firefox/3.6.15",
         ]
-        self.url = "http://www.quanshuwang.com/book/0/858"
+        self.url = "https://nba.hupu.com/standings"
         self.headers = {
             "user-agent": choice(self.user_agent_list)
         }
@@ -31,25 +29,11 @@ class CrawlerNovel:
         res = self.get_response()
         # 1. 实例化bs4
         soup = bs4.BeautifulSoup(res, 'lxml')
-        targets = soup.select(".clearfix > li")
-        for target in targets:
-            title = target.a.string
-            chapter_url = target.a['href']
-            time.sleep(5)
-            every_chapter = requests.get(url=chapter_url, headers=self.headers).text
-            soup_chapter = bs4.BeautifulSoup(every_chapter, 'lxml')
-            tag_chapter = soup_chapter.find("div", class_="mainContenr")
-            content = tag_chapter.text
-            print(content)
-
-    def test(self):
-        url = "http://www.quanshuwang.com/book/0/858/274178.html"
-        res = requests.get(url, headers=self.headers).text
-        print(res)
-
-
-
+        # 提取所有的球队
+        lists = soup.select('.players_table > tbody .left > a')
+        for list in lists:
+            print(list.text)
 
 
 if __name__ == '__main__':
-    CrawlerNovel().test()
+    CrawlerNovel().run()
