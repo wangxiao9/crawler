@@ -4,13 +4,7 @@ from bs4 import BeautifulSoup
 
 from proxy.get import GetProxy
 
-'''
 
-https://myapollo.com.tw/zh-tw/begin-to-asyncio/
-https://www.learncodewithmike.com/2020/09/python-asynchronous-scraper-using-asyncio-and-aiohttp.html
-https://ithelp.ithome.com.tw/articles/10262385
-
-'''
 
 async def main():
     links = [
